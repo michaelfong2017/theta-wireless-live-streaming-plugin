@@ -30,9 +30,9 @@ class VideoSpecificConfig(private val sps: ByteArray, private val pps: ByteArray
     data.put(profileIop.value)
     val levelIdc = sps[3]
     data.put(levelIdc)
-    data.put(0x03)
+    data.put(0xff.toByte())
     //3 bytes size of sps
-    data.put(0x01)
+    data.put(0xe1.toByte())
     data.putShort(sps.size.toShort())
     //N bytes of sps
     data.put(sps)
